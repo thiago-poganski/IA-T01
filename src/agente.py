@@ -84,7 +84,7 @@ FUNCOES_DISPONIVEIS = {
 
 def registrar_log(ferramenta: str, entrada: dict, saida: str):
     """Gera um log de cada chamada de ferramenta (Requisito 4)."""
-    with open("logs.txt", "a", encoding="utf-8") as f:
+    with open("logs/logs.txt", "a", encoding="utf-8") as f:
         f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]\n")
         f.write(f"Ferramenta Chamada: {ferramenta}\n")
         f.write(f"Entrada (Parâmetros): {json.dumps(entrada, ensure_ascii=False)}\n")
@@ -124,10 +124,10 @@ def iniciar_jarvis():
 
     Ferramentas disponíveis:
     1. "consultar_agenda": parâmetros: "data_inicio" (YYYY-MM-DD), "data_fim" (YYYY-MM-DD).
-    2. "listar_tarefas": parâmetros: "status" ("todas", "pendente", "concluída").
-    3. "adicionar_tarefa": parâmetros: "descricao" (texto).
-    4. "concluir_tarefa": parâmetros: "id_tarefa" (número inteiro).
-    5. "buscar_material_rag": parâmetros: "query" (texto da busca).
+    2. "adicionar_evento_agenda": parâmetros: "evento" (texto), "data_hora" (YYYY-MM-DD HH:MM), "descricao" (texto).
+    3. "listar_tarefas": parâmetros: "status" ("todas", "pendente", "concluída").
+    4. "adicionar_tarefa": parâmetros: "descricao" (texto).
+    5. "concluir_tarefa": parâmetros: "id_tarefa" (número inteiro).
     6. "buscar_material_rag": parâmetros: "query" (texto da busca).
     7. "gerar_exercicios": parâmetros: "topico" (texto), "quantidade" (inteiro). Use quando o usuário quiser lista de exercícios para praticar depois.
     8. "iniciar_active_recall": parâmetros: "topico" (texto). Use quando o usuário quiser testar os conhecimentos AGORA, de forma interativa.
