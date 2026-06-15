@@ -15,7 +15,7 @@ client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
     base_url=os.getenv("BASE_URL")
 )
-MODELO = 'google/gemma-3-12b-it'
+MODELO = 'Qwen/Qwen2.5-14B-Instruct-AWQ'
 
 # ==========================================
 # SEÇÃO 5: MELHORIAS DE APRENDIZADO
