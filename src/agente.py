@@ -200,7 +200,13 @@ def iniciar_jarvis():
                 print(f"\nJARVIS: {texto_ia}")
                 
         except Exception as e:
-            print(f"\n[Erro na execução]: {e}")
+            erro_str = str(e)
+            if "502 Bad Gateway" in erro_str:
+                print("\n[🚨 ERRO 502]: O servidor da IA está fora do ar ou reiniciando. Tente novamente em alguns minutos.")
+            elif "400" in erro_str:
+                print(f"\n[⚠️ ERRO 400]: Requisição mal formatada ou bloqueada pelo servidor. Detalhes: {erro_str}")
+            else:
+                print(f"\n[Erro de Comunicação com a API]: {erro_str}")
 
 if __name__ == "__main__":
     iniciar_jarvis()
