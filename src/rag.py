@@ -3,9 +3,18 @@ from chromadb.utils import embedding_functions
 from converter import extrair_texto_pdf
 from chunking import dividir_texto_em_chunks
 from pathlib import Path
+# 1. Encontra a raiz do projeto (voltando uma pasta a partir de 'src')
+RAIZ_PROJETO = Path(__file__).resolve().parent.parent
 
+# 2. Define e cria a pasta 'db' na raiz (se ela ainda não existir)
+PASTA_DB = RAIZ_PROJETO / "db"
+PASTA_DB.mkdir(exist_ok=True)
+
+# 3. Define o caminho final do arquivo rag
+DB_PATH = PASTA_DB / "rag_db"
+DB_PATH.mkdir(exist_ok=True)
 # Configura o banco vetorial e o modelo de embeddings (gratuito e local)
-chroma_client = chromadb.PersistentClient(path="./db/rag_db")
+chroma_client = chromadb.PersistentClient(path=DB_PATH)
 modelo_embedding = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
 
 colecao = chroma_client.get_or_create_collection(
