@@ -77,9 +77,9 @@ def buscar_material_rag(query: str) -> str:
     contexto_final = "\n\n---\n\n".join(textos_recuperados)
     return contexto_final
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
 #     # Indexa o PDF apenas na primeira vez
-#     # indexar_toda_a_pasta_data()
+      indexar_toda_a_pasta_data()
     
 #     # Testa a ferramenta de busca
 #     pergunta = "Como calcular o tempo de execução?"

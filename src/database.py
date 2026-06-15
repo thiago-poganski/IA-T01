@@ -142,5 +142,5 @@ def adicionar_evento_agenda(evento: str, data_hora: str, descricao: str = "") ->
     return f"Sucesso: Evento '{evento}' adicionado para {data_hora} com ID {id_evento}."
 
 # Executa a inicialização ao rodar o script
-# if __name__ == "__main__":
-#     inicializar_banco()
+if __name__ == "__main__":
+    inicializar_banco()
