@@ -84,6 +84,7 @@ FUNCOES_DISPONIVEIS = {
 
 def registrar_log(ferramenta: str, entrada: dict, saida: str):
     """Gera um log de cada chamada de ferramenta (Requisito 4)."""
+    os.makedirs("logs", exist_ok=True)
     with open("logs/logs.txt", "a", encoding="utf-8") as f:
         f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]\n")
         f.write(f"Ferramenta Chamada: {ferramenta}\n")
